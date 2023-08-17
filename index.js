@@ -36,3 +36,47 @@ const headerLogoConatiner = document.querySelector('.header__logo-container')
 headerLogoConatiner.addEventListener('click', () => {
   location.href = 'index.html'
 })
+
+
+
+
+document.addEventListener("DOMContentLoaded", function() {
+  const form = document.getElementById("contact-form");
+  
+  form.addEventListener("submit", function(event) {
+    event.preventDefault();
+    
+    const formData = new FormData(form);
+    form.reset()
+    sendEmail(formData);
+  });
+});
+
+function sendEmail(formData) {
+  emailjs.send("service_df746s8", "template_ynus5zn", {
+    to_email: "mannpatel1360@gmail.com", // Your email address
+    from_name: formData.get("name"),
+    from_email: formData.get("email"),
+    message: formData.get("message")
+  }).then(function(response) {
+    alert("Email sent successfully")
+    console.log("Email sent successfully:", response);
+    // You can add further actions here, like showing a success message
+  }).catch(function(error) {
+    console.error("Email sending error:", error);
+    // You can add further actions here, like showing an error message
+  });
+}
+
+document.addEventListener("DOMContentLoaded", function() {
+  const typedOutput = document.getElementById("auto-type");
+  
+  const options = {
+    strings: ["I am Mann Patel", "I am React Js Developer", "Happy to have you here!"],
+    typeSpeed: 100, // Typing speed in milliseconds
+    backSpeed: 70, // Backspacing speed in milliseconds
+    loop: true // Loop the typing animation
+  };
+  
+  const typed = new Typed(typedOutput, options);
+});

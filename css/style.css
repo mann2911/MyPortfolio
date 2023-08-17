@@ -612,7 +612,7 @@ textarea {
   color: #fff; }
   .main-footer__upper {
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     padding: 8rem 0; }
     @media only screen and (max-width: 56.25em) {
       .main-footer__upper {
@@ -628,6 +628,9 @@ textarea {
   .main-footer__row-2 {
     width: 40%;
     order: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     max-width: 50rem; }
     @media only screen and (max-width: 56.25em) {
       .main-footer__row-2 {
